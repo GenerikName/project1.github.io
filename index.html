@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>iPhone Duo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<style>
+    body, table, td, a {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    }
+
+    table, td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+    }
+
+    table {
+        border-collapse: collapse !important;
+    }
+
+    img {
+        border: 0;
+        display: block;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+        -ms-interpolation-mode: bicubic;
+    }
+
+    body {
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    a[x-apple-data-detectors],
+    u + #body a,
+    #MessageViewBody a {
+        color: inherit;
+        text-decoration: none;
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .hero {
+        width: 100% !important;
+        max-width: 600px !important;
+        height: auto !important;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 14px 30px;
+        background-color: #0071e3;
+        border-radius: 999px;
+        color: #ffffff !important;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .button:hover,
+    .button:focus {
+        background-color: #2997ff !important;
+        transform: translateY(-2px);
+    }
+
+    .link {
+        color: #0071e3 !important;
+        text-decoration: underline;
+    }
+
+    .link:hover,
+    .link:focus {
+        color: #2997ff !important;
+    }
+
+    /* Animation */
+    @keyframes duoFloat {
+        0% {
+            transform: translateY(0);
+            background-position: center center;
+        }
+
+        50% {
+            transform: translateY(-4px);
+            background-position: center 48%;
+        }
+
+        100% {
+            transform: translateY(0);
+            background-position: center center;
+        }
+    }
+
+    .animated-hero {
+        animation: duoFloat 5s ease-in-out infinite;
+    }
+
+    /* column layouts */
+    .two-column,
+    .three-column {
+        width: 100%;
+    }
+
+    .two-column-cell {
+        width: 50%;
+        vertical-align: top;
+    }
+
+    .three-column-cell {
+        width: 33.333%;
+        vertical-align: top;
+    }
+
+    .column-content {
+        padding: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* checked box */
+    .toggle-input,
+    .radio-input {
+        position: absolute !important;
+        left: -9999px !important;
+        width: 1px !important;
+        height: 1px !important;
+        overflow: hidden !important;
+    }
+
+    .toggle-label,
+    .radio-label {
+        display: inline-block;
+        cursor: pointer;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        line-height: 18px;
+        color: #0071e3;
+        text-decoration: underline;
+    }
+
+    .toggle-content {
+        display: none;
+        padding-top: 8px;
+    }
+
+    #duo-toggle:checked ~ .toggle-content {
+        display: block;
+    }
+
+    /* radio button */
+    .radio-panel {
+        display: none;
+        padding-top: 10px;
+    }
+
+    #feature-display:checked ~ .feature-display-content,
+    #feature-camera:checked ~ .feature-camera-content,
+    #feature-productivity:checked ~ .feature-productivity-content {
+        display: block;
+    }
+
+    @media screen and (max-width: 600px) {
+        .container {
+            width: 100% !important;
+        }
+
+        .content {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        .hero {
+            width: 100% !important;
+            height: auto !important;
+        }
+
+        .button {
+            padding: 15px 32px !important;
+            font-size: 15px !important;
+        }
+
+        .two-column-cell,
+        .three-column-cell {
+            display: block !important;
+            width: 100% !important;
+        }
+
+        .column-content {
+            padding: 10px 20px !important;
+        }
+
+        .mobile-heading {
+            font-size: 18px !important;
+            line-height: 24px !important;
+        }
+
+        .mobile-text {
+            font-size: 15px !important;
+            line-height: 22px !important;
+        }
+
+        .mobile-small {
+            font-size: 12px !important;
+            line-height: 17px !important;
+        }
+
+        .animated-hero {
+            animation-duration: 6s;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .animated-hero,
+        .button {
+            animation: none !important;
+            transition: none !important;
+        }
+    }
+</style>
+
+</head>
+
+<body id="body" style="margin:0; padding:0; background-color:#292929;">
+
+<!-- Background -->
+<table
+    role="presentation"
+    width="100%"
+    cellpadding="0"
+    cellspacing="0"
+    border="0"
+    style="width:100%; background-color:#292929;"
+>
+    <tr>
+        <td align="center" style="padding:8px;">
+
+            <!-- 600px table -->
+            <table
+                role="presentation"
+                class="container"
+                width="600"
+                cellpadding="0"
+                cellspacing="0"
+                border="0"
+                style="
+                    width:100%;
+                    max-width:600px;
+                    background-color:#3a3a3a;
+                    border:1px solid #777777;
+                    border-radius:8px;
+                    overflow:hidden;
+                "
+            >
+
+                <!-- Logo -->
+                <tr>
+                    <td align="center" style="padding:10px 20px 5px;">
+                        <img
+                            src="https://wallpapers.com/images/hd/apple-logo-silver-364lc2f68kt51nm3.png"
+                            width="42"
+                            height="42"
+                            alt="Apple Logo"
+                            style="width:42px; height:42px;"
+                        >
+                    </td>
+                </tr>
+
+                <!-- Headline w/ separate bg image -->
+                <tr>
+                    <td
+                        align="center"
+                        background="https://static.vecteezy.com/system/resources/thumbnails/072/917/547/small/a-beautiful-tropical-ocean-scene-features-crystal-clear-turquoise-water-under-a-bright-blue-sky-with-fluffy-white-clouds-and-a-distant-island-photo.jpg"
+                        style="
+                            background-color:#222222;
+                            background-image:url('https://static.vecteezy.com/system/resources/thumbnails/072/917/547/small/a-beautiful-tropical-ocean-scene-features-crystal-clear-turquoise-water-under-a-bright-blue-sky-with-fluffy-white-clouds-and-a-distant-island-photo.jpg');
+                            background-position:center center;
+                            background-size:cover;
+                            background-repeat:no-repeat;
+                            padding:28px 25px;
+                        "
+                    >
+                        <h1
+                            style="
+                                margin:0;
+                                font-family:Arial, Helvetica, sans-serif;
+                                font-size:29px;
+                                line-height:34px;
+                                color:#ffffff;
+                            "
+                        >
+                            Meet iPhone Duo
+                        </h1>
+
+                        <p
+                            style="
+                                margin:7px 0 0;
+                                font-family:Arial, Helvetica, sans-serif;
+                                font-size:15px;
+                                line-height:21px;
+                                color:#dddddd;
+                            "
+                        >
+                            A new kind of iPhone. Foldable, versatile,
+                            and ready for whatever comes next.
+                        </p>
+                    </td>
+                </tr>
+
+                <!-- Responsive hero image -->
+                <tr>
+                    <td class="animated-hero">
+                        <img
+                            class="hero"
+                            src="https://placehold.co/600x260/111111/ffffff?text=iPhone+Duo"
+                            width="600"
+                            alt="iPhone Duo"
+                            style="
+                                display:block;
+                                width:100%;
+                                max-width:600px;
+                                height:auto;
+                            "
+                        >
+                    </td>
+                </tr>
+
+                <!-- Body -->
+                <tr>
+                    <td
+                        class="content"
+                        style="padding:18px 30px 5px;"
+                    >
+                        <h2
+                            style="
+                                margin:0 0 7px;
+                                font-family:Arial, Helvetica, sans-serif;
+                                font-size:21px;
+                                line-height:27px;
+                                color:#f2f2f2;
+                            "
+                        >
+                            More screen. More possibilities.
+                        </h2>
+
+                        <p
+                            class="mobile-text"
+                            style="
+                                margin:0 0 9px;
+                                font-family:Arial, Helvetica, sans-serif;
+                                font-size:14px;
+                                line-height:20px;
+                                color:#c6c6c6;
+                            "
+                        >
+                            Meet the next generation of iPhone. iPhone Duo brings
+                            a large, immersive display to a foldable design that
+                            fits naturally into your everyday life.
+                        </p>
+
+                        <p
+                            class="mobile-text"
+                            style="
+                                margin:0 0 9px;
+                                font-family:Arial, Helvetica, sans-serif;
+                                font-size:14px;
+                                line-height:20px;
+                                color:#c6c6c6;
+                            "
+                        >
+                            Fold it for everyday portability, open it when you
+                            want more room, and use it in new ways with
+                            experiences designed around its flexible form.
+                        </p>
+
+                        <h3
+                            class="mobile-heading"
+                            style="
+                                margin:10px 0 4px;
+                                font-family:Arial, Helvetica, sans-serif;
+                                font-size:17px;
+                                line-height:22px;
+                                color:#e8e8e8;
+                            "
+                        >
+                            Designed to do more
+                        </h3>
+
+                        <p
+                            class="mobile-text"
+                            style="
+                                margin:0;
+                                font-family:Arial, Helvetica, sans-serif;
+                                font-size:14px;
+                                line-height:20px;
+                                color:#c6c6c6;
+                            "
+                        >
+                            From watching videos and browsing the web to getting
+                            more done on the go, iPhone Duo gives you a new way
+                            to experience iPhone.
+                        </p>
+                    </td>
+                </tr>
+
+                <!-- Two columns -->
+                <tr>
+                    <td style="padding:15px 18px 5px;">
+                        <table
+                            role="presentation"
+                            class="two-column"
+                            width="100%"
+                            cellpadding="0"
+                            cellspacing="0"
+                            border="0"
+                        >
+                            <tr>
+                                <td
+                                    class="two-column-cell"
+                                    width="50%"
+                                    style="width:50%; vertical-align:top;"
+                                >
+                                    <div
+                                        class="column-content"
+                                        style="
+                                            background-color:#444444;
+                                            border-radius:8px;
+                                        "
+                                    >
+                                        <h3
+                                            class="mobile-heading"
+                                            style="
+                                                margin:0 0 5px;
+                                                font-family:Arial, Helvetica, sans-serif;
+                                                font-size:17px;
+                                                line-height:22px;
+                                                color:#ffffff;
+                                            "
+                                        >
+                                            Fold when you want
+                                        </h3>
+
+                                        <p
+                                            class="mobile-text"
+                                            style="
+                                                margin:0;
+                                                font-family:Arial, Helvetica, sans-serif;
+                                                font-size:13px;
+                                                line-height:19px;
+                                                color:#c6c6c6;
+                                            "
+                                        >
+                                            Keep the phone compact for everyday
+                                            use and open it whenever you need
+                                            additional screen space.
+                                        </p>
+                                    </div>
+                                </td>
+
+                                <td
+                                    class="two-column-cell"
+                                    width="50%"
+                                    style="width:50%; vertical-align:top;"
+                                >
+                                    <div
+                                        class="column-content"
+                                        style="
+                                            background-color:#444444;
+                                            border-radius:8px;
+                                        "
+                                    >
+                                        <h3
+                                            class="mobile-heading"
+                                            style="
+                                                margin:0 0 5px;
+                                                font-family:Arial, Helvetica, sans-serif;
+                                                font-size:17px;
+                                                line-height:22px;
+                                                color:#ffffff;
+                                            "
+                                        >
+                                            More room to explore
+                                        </h3>
+
+                                        <p
+                                            class="mobile-text"
+                                            style="
+                                                margin:0;
+                                                font-family:Arial, Helvetica, sans-serif;
+                                                font-size:13px;
+                                                line-height:19px;
+                                                color:#c6c6c6;
+                                            "
+                                        >
+                                            Enjoy more space for videos, apps,
+                                            browsing, and everyday productivity.
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- Three columns -->
+                <tr>
+                    <td style="padding:10px 18px 5px;">
+                        <table
+                            role="presentation"
+                            class="three-column"
+                            width="100%"
+                            cellpadding="0"
+                            cellspacing="0"
+                            border="0"
+                        >
+                            <tr>
+                                <td
+                                    class="three-column-cell"
+                                    width="33.333%"
+                                    style="width:33.333%; vertical-align:top;"
+                                >
+                                    <div
+                                        class="column-content"
+                                        style="
+                                            background-color:#333333;
+                                            border-radius:8px;
+                                        "
+                                    >
+                                        <h3
+                                            style="
+                                                margin:0 0 4px;
+                                                font-family:Arial, Helvetica, sans-serif;
+                                                font-size:15px;
+                                                line-height:20px;
+                                                color:#ffffff;
+                                            "
+                                        >
+                                            Display
+                                        </h3>
+
+                                        <p
+                                            class="mobile-text"
+                                            style="
+                                                margin:0;
+                                                font-family:Arial, Helvetica, sans-serif;
+                                                font-size:12px;
+                                                line-height:18px;
+                                                color:#bdbdbd;
+                                            "
+                                        >
+                                            More space when you need it.
+                                        </p>
+                                    </div>
+                                </td>
+
+                                <td
+                                    class="three-column-cell"
+                                    width="33.333%"
+                                    style="width:33.333%; vertical-align:top;"
+                                >
+                                    <div
+                                        class="column-content"
+                                        style="
+                                            background-color:#333333;
+                                            border-radius:8px;
+                                        "
+                                    >
+                                        <h3
+                                            style="
+                                                margin:0 0 4px;
+                                                font-family:Arial, Helvetica, sans-serif;
+                                                font-size:15px;
+                                                line-height:20px;
+                                                color:#ffffff;
+                                            "
+                                        >
+                                            Portability
+                                        </h3>
+
+                                        <p
+                                            class="mobile-text"
+                                            style="
+                                                margin:0;
+                                                font-family:Arial, Helvetica, sans-serif;
+                                                font-size:12px;
+                                                line-height:18px;
+                                                color:#bdbdbd;
+                                            "
+                                        >
+                                            Compact when folded.
+                                        </p>
+                                    </div>
+                                </td>
+
+                                <td
+                                    class="three-column-cell"
+                                    width="33.333%"
+                                    style="width:33.333%; vertical-align:top;"
+                                >
+                                    <div
+                                        class="column-content"
+                                        style="
+                                            background-color:#333333;
+                                            border-radius:8px;
+                                        "
+                                    >
+                                        <h3
+                                            style="
+                                                margin:0 0 4px;
+                                                font-family:Arial, Helvetica, sans-serif;
+                                                font-size:15px;
+                                                line-height:20px;
+                                                color:#ffffff;
+                                            "
+                                        >
+                                            Flexibility
+                                        </h3>
+
+                                        <p
+                                            class="mobile-text"
+                                            style="
+                                                margin:0;
+                                                font-family:Arial, Helvetica, sans-serif;
+                                                font-size:12px;
+                                                line-height:18px;
+                                                color:#bdbdbd;
+                                            "
+                                        >
+                                            Designed around your day.
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- Checked box -->
+                <tr>
+                    <td
+                        align="center"
+                        style="padding:18px 25px 5px;"
+                    >
+                        <input
+                            type="checkbox"
+                            id="duo-toggle"
+                            class="toggle-input"
+                        >
+
+                        <label
+                            for="duo-toggle"
+                            class="toggle-label"
+                        >
+                            See another detail
+                        </label>
+
+                        <div
+                            class="toggle-content"
+                            style="
+                                font-family:Arial, Helvetica, sans-serif;
+                                font-size:13px;
+                                line-height:19px;
+                                color:#c6c6c6;
+                            "
+                        >
+                            Open iPhone Duo for a larger viewing area,
+                            then fold it back down when you are ready to go.
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Radio buttons, labels, divs -->
+                <tr>
+                    <td style="padding:15px 25px 5px;">
+                        <h3
+                            align="center"
+                            style="
+                                margin:0 0 10px;
+                                font-family:Arial, Helvetica, sans-serif;
+                                font-size:17px;
+                                line-height:22px;
+                                color:#e8e8e8;
+                            "
+                        >
+                            Explore the experience
+                        </h3>
+
+                        <div align="center">
+                            <input
+                                type="radio"
+                                id="feature-display"
+                                name="features"
+                                class="radio-input"
+                                checked
+                            >
+
+                            <label
+                                for="feature-display"
+                                class="radio-label"
+                                style="margin-right:12px;"
+                            >
+                                Display
+                            </label>
+
+                            <input
+                                type="radio"
+                                id="feature-camera"
+                                name="features"
+                                class="radio-input"
+                            >
+
+                            <label
+                                for="feature-camera"
+                                class="radio-label"
+                                style="margin-right:12px;"
+                            >
+                                Camera
+                            </label>
+
+                            <input
+                                type="radio"
+                                id="feature-productivity"
+                                name="features"
+                                class="radio-input"
+                            >
+
+                            <label
+                                for="feature-productivity"
+                                class="radio-label"
+                            >
+                                Productivity
+                            </label>
+
+                            <div
+                                class="radio-panel feature-display-content"
+                                style="
+                                    font-family:Arial, Helvetica, sans-serif;
+                                    font-size:13px;
+                                    line-height:19px;
+                                    color:#c6c6c6;
+                                "
+                            >
+                                A larger display gives you additional room
+                                for viewing and exploring content.
+                            </div>
+
+                            <div
+                                class="radio-panel feature-camera-content"
+                                style="
+                                    font-family:Arial, Helvetica, sans-serif;
+                                    font-size:13px;
+                                    line-height:19px;
+                                    color:#c6c6c6;
+                                "
+                            >
+                                A flexible form factor gives you new ways
+                                to frame and view your content.
+                            </div>
+
+                            <div
+                                class="radio-panel feature-productivity-content"
+                                style="
+                                    font-family:Arial, Helvetica, sans-serif;
+                                    font-size:13px;
+                                    line-height:19px;
+                                    color:#c6c6c6;
+                                "
+                            >
+                                More screen area creates additional room
+                                for everyday tasks and multitasking.
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Centered button with spacing -->
+                <tr>
+                    <td
+                        align="center"
+                        style="
+                            padding:22px 25px 28px;
+                            text-align:center;
+                        "
+                    >
+                        <a
+                            href="https://www.apple.com/iphone-duo/"
+                            class="button"
+                            style="
+                                display:inline-block;
+                                padding:14px 30px;
+                                background-color:#0071e3;
+                                border-radius:999px;
+                                color:#ffffff;
+                                font-family:Arial, Helvetica, sans-serif;
+                                font-size:14px;
+                                line-height:18px;
+                                font-weight:bold;
+                                text-decoration:none;
+                            "
+                        >
+                            Learn More
+                        </a>
+                    </td>
+                </tr>
+
+                <!-- Footer -->
+                <tr>
+                    <td
+                        align="center"
+                        style="padding:3px 25px 12px;"
+                    >
+                        <p
+                            class="mobile-small"
+                            style="
+                                margin:0 0 3px;
+                                font-family:Arial, Helvetica, sans-serif;
+                                font-size:10px;
+                                line-height:14px;
+                                color:#8f8f8f;
+                            "
+                        >
+                            © 2026 Apple. All rights reserved.
+                        </p>
+
+                        <p
+                            class="mobile-small"
+                            style="
+                                margin:0;
+                                font-family:Arial, Helvetica, sans-serif;
+                                font-size:10px;
+                                line-height:14px;
+                                color:#8f8f8f;
+                            "
+                        >
+                            You are receiving this email because you signed
+                            up for updates.
+                            <a
+                                href="#"
+                                class="link"
+                                style="
+                                    color:#0071e3;
+                                    text-decoration:underline;
+                                "
+                            >
+                                Unsubscribe
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+
+            </table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
